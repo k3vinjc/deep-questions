@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preguntas para conectar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Experiencia guiada</p>
+      <h1>Preguntas para conectar mejor</h1>
+      <p class="lead">Crea el orden de turnos, deja que cada persona elija el tipo de tarjeta y avanza hasta agotar las preguntas.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Orden de participación</h2>
+        <p class="muted">Ingresa los nombres en el orden en que hablarán. La sesión se guarda en este navegador.</p>
+      </div>
+      <div class="form">
+        <label class="field">
+          <span>Nombres (en orden, separados por coma o salto de línea)</span>
+          <textarea id="namesInput" rows="3" placeholder="Ana, Luis, Sofía"></textarea>
+        </label>
+        <button class="btn full" id="saveNamesButton">Guardar orden</button>
+        <p class="note" id="statusText">Agrega nombres y guarda para iniciar.</p>
+      </div>
+      <div class="names" id="namesList"></div>
+    </section>
+
+    <section class="panel card" aria-live="polite">
+      <div class="panel__header">
+        <div class="badge" id="turnBadge">Turno</div>
+        <div class="subtle" id="remainingText"></div>
+      </div>
+      <div class="card__body">
+        <p class="muted" id="turnText">Quien sigue aparecerá aquí.</p>
+        <div class="field">
+          <span>Tipo de tarjeta</span>
+          <div class="chip-group" role="group" aria-label="Tipos de tarjeta">
+            <button class="chip" data-type="conexion">Conexión</button>
+            <button class="chip" data-type="percepcion">Percepción</button>
+            <button class="chip" data-type="reflexion">Reflexión</button>
+          </div>
+        </div>
+        <p class="question" id="questionText">Selecciona un tipo para obtener una pregunta aleatoria.</p>
+        <div class="actions">
+          <button id="completeButton" class="btn primary">Marcar completada y siguiente nombre</button>
+          <button id="resetButton" class="btn ghost">Reiniciar preguntas</button>
+        </div>
+        <p class="hint" id="hintText"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="muted">La aplicación rota automáticamente al siguiente nombre cuando marcas una pregunta como completada.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
